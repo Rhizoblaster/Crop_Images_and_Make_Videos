@@ -1,0 +1,22 @@
+import cv2
+import os
+
+path = ('C:/Users/isaac_madsen/Google Drive/Image_analysis_for_haiying_acid' + '/crop_2')
+
+image_folder = path
+video_name = 'video_1.avi'
+
+images = [img for img in os.listdir(image_folder) if img.endswith(".tif")]
+frame = cv2.imread(os.path.join(image_folder, images[0]))
+height, width, layers = frame.shape
+
+fourcc = cv2.VideoWriter_fourcc(*'XVID')
+#fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+#fourcc = cv2.cv.CV_FOURCC(*'H264')
+video = cv2.VideoWriter(video_name, fourcc , 3, (width,height))
+
+for image in images:
+   video.write(cv2.imread(os.path.join(image_folder, image)))
+
+cv2.destroyAllWindows()
+video.release()

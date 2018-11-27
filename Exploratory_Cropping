@@ -1,0 +1,31 @@
+## code for exploratory cropping
+
+from PIL import Image
+import os, sys
+
+os.chdir('C:/Users/isaac_madsen/Google Drive/Image_analysis_for_haiying_acid')
+
+source_path = ('//ncre-stats/RootScans/Haiying Peas 101617 to 110617/Control-Twisty')
+out_path = ('C:/Users/isaac_madsen/Google Drive/Image_analysis_for_haiying_acid' + '/crop_1')
+dirs = os.listdir( source_path )
+
+#print(path)
+#print(dirs)
+
+Image.MAX_IMAGE_PIXELS = 700000000
+
+## crop conduct experimental crop on a selected image
+
+## open sample image
+
+im = Image.open(source_path + "/2017-10-28-0002.jpg")
+width, height = im.size
+left = width/2.25
+top = height/4.15
+right = width - (width/2.3)
+bottom = height - (height/1.4)
+print(width, height)
+print(left, top, right, bottom)
+
+#cropped_im = im.crop((left,top,right,bottom))
+#cropped_im.save(out_path + '/cropped_1.tif', 'TIFF', quality = 90)

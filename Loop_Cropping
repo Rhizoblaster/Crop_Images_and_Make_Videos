@@ -1,0 +1,15 @@
+## loop to crop all images once scout cropping is complete
+
+import os
+import sys
+import subprocess
+from subprocess import scout_cropping
+
+print (dirs)
+## crop all of the images
+
+#for item in dirs:
+    im = Image.open(source_path+ "/" +item)
+    cropped_im = im.crop((left,top,right,bottom))
+    f, e = os.path.splitext(out_path + "/" + item)
+    cropped_im.save(f + '_cropped.tif', 'TIFF', quality = 90)
